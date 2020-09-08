@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE generatorConfiguration   PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"   "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <context id="DB2Tables" targetRuntime="MyBatis3Simple">
+        <commentGenerator>
+            <property name="suppressDate" value="true" />
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <!-- 这个注释是generator的注释。不是建表时手输的，没什么卵用-->
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+        <!--数据库链接URL，用户名、密码 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/test?characterEncoding=utf-8"
+                        userId="root" password="123456">
+        </jdbcConnection>
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+        <!-- 设置Java类生成的位置 -->
+        <javaModelGenerator targetPackage="com.example.mybatisdemo.blog.VO"
+                            targetProject="./src/main/java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+        <!-- 生成映射文件的包名和位置 ***mapper.xml-->
+        <sqlMapGenerator targetPackage="\spring\sqlMap"
+                         targetProject="./src/main/resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+        <!-- 生成DAO的包名和位置 ***mapper.java-->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.example.mybatisdemo.blog.dao" targetProject="./src/main/java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+        <!-- 所有要生成的表名 -->
+        <table tableName="userInfo"></table>
+<!--        <table tableName="article"></table>-->
+<!--        <table tableName="comments"></table>-->
+<!--        <table tableName="links"></table>-->
+<!--        <table tableName="menus"></table>-->
+<!--        <table tableName="notice"></table>-->
+<!--        <table tableName="articleSort"></table>-->
+    </context>
+</generatorConfiguration>
