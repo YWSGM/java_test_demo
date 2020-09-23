@@ -1,31 +1,60 @@
 package com.example.mybatisdemo.blog.controller;
 
 import com.example.mybatisdemo.blog.VO.Userinfo;
-import com.example.mybatisdemo.blog.dao.UserinfoMapper;
 import com.example.mybatisdemo.blog.serves.JsonResult;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping(value = "/user")
 public class UserController {
     @Autowired
     private JdbcTemplate jdbcTemplate;
+
+    @PostMapping(value = "/login")
+    @ResponseBody
+    public JsonResult login(
+            @RequestParam(value = "userName") String userName,
+            @RequestParam(value = "passWord") String passWord
+    ) {
+        String sql = "select userName, passWord from UserInfo where userName = ".concat(userName);
+        Map<String, Object> stringObjectMap = jdbcTemplate.queryForMap(sql);
+        if (stringObjectMap.size() == 0) {
+            return new JsonResult<>("1", "您的账号或密码不正确，请检查后重新输入");
+        }
+        try {
+            if (userName.equals(stringObjectMap.get("userName")) && passWord.equals(stringObjectMap.get("passWord"))) {
+                return new JsonResult<>("登陆成功");
+            } else {
+                return new JsonResult<>("1", "您的账号或密码不正确，请检查后重新输入");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     @GetMapping(value = "/list")
     @ResponseBody
     public JsonResult<List> Userinfo() {
         String sql = "select * from UserInfo";
+        List<Map<String, Object>> list = new ArrayList<>();
+        list = jdbcTemplate.queryForList(sql);
+        return new JsonResult<>(list);
+    }
+
+    @GetMapping(value = "/getUserByUserId")
+    @ResponseBody
+    public JsonResult<List> getUserByUserId(
+            @RequestParam String id
+    ) {
+        String sql = "select * from UserInfo where id = " + id;
         List<Map<String, Object>> list = new ArrayList<>();
         list = jdbcTemplate.queryForList(sql);
         return new JsonResult<>(list);
