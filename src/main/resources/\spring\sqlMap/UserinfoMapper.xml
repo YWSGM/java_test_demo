@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mybatisdemo.blog.dao.UserinfoMapper">
+  <resultMap id="BaseResultMap" type="com.example.mybatisdemo.blog.VO.Userinfo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="userName" jdbcType="VARCHAR" property="username" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="passWord" jdbcType="VARCHAR" property="password" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from userInfo
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.mybatisdemo.blog.VO.Userinfo">
+    insert into userInfo (id, userName, sex, 
+      age, passWord)
+    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, 
+      #{age,jdbcType=INTEGER}, #{password,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.mybatisdemo.blog.VO.Userinfo">
+    update userInfo
+    set userName = #{username,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      age = #{age,jdbcType=INTEGER},
+      passWord = #{password,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, userName, sex, age, passWord
+    from userInfo
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, userName, sex, age, passWord
+    from userInfo
+  </select>
+  <resultMap id="BaseResultMap" type="com.example.mybatisdemo.blog.VO.Userinfo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="userName" jdbcType="VARCHAR" property="username" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="passWord" jdbcType="VARCHAR" property="password" />
+    <result column="sex" jdbcType="VARBINARY" property="sex" />
+    <result column="CHName" jdbcType="VARBINARY" property="chname" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from userInfo
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.mybatisdemo.blog.VO.Userinfo">
+    insert into userInfo (id, userName, age, 
+      passWord, sex, CHName
+      )
+    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, 
+      #{password,jdbcType=VARCHAR}, #{sex,jdbcType=VARBINARY}, #{chname,jdbcType=VARBINARY}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.mybatisdemo.blog.VO.Userinfo">
+    update userInfo
+    set userName = #{username,jdbcType=VARCHAR},
+      age = #{age,jdbcType=INTEGER},
+      passWord = #{password,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARBINARY},
+      CHName = #{chname,jdbcType=VARBINARY}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, userName, age, passWord, sex, CHName
+    from userInfo
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, userName, age, passWord, sex, CHName
+    from userInfo
+  </select>
+  <resultMap id="BaseResultMap" type="com.example.mybatisdemo.blog.VO.Userinfo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="userName" jdbcType="VARCHAR" property="username" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="passWord" jdbcType="VARCHAR" property="password" />
+    <result column="sex" jdbcType="VARBINARY" property="sex" />
+    <result column="CHName" jdbcType="VARBINARY" property="chname" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from userInfo
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.mybatisdemo.blog.VO.Userinfo">
+    insert into userInfo (id, userName, age, 
+      passWord, sex, CHName
+      )
+    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, 
+      #{password,jdbcType=VARCHAR}, #{sex,jdbcType=VARBINARY}, #{chname,jdbcType=VARBINARY}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.mybatisdemo.blog.VO.Userinfo">
+    update userInfo
+    set userName = #{username,jdbcType=VARCHAR},
+      age = #{age,jdbcType=INTEGER},
+      passWord = #{password,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARBINARY},
+      CHName = #{chname,jdbcType=VARBINARY}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, userName, age, passWord, sex, CHName
+    from userInfo
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, userName, age, passWord, sex, CHName
+    from userInfo
+  </select>
+  <resultMap id="BaseResultMap" type="com.example.mybatisdemo.blog.VO.Userinfo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="userName" jdbcType="VARCHAR" property="username" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="passWord" jdbcType="VARCHAR" property="password" />
+    <result column="sex" jdbcType="VARBINARY" property="sex" />
+    <result column="CHName" jdbcType="VARBINARY" property="chname" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from userInfo
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.mybatisdemo.blog.VO.Userinfo">
+    insert into userInfo (id, userName, age, 
+      passWord, sex, CHName
+      )
+    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, 
+      #{password,jdbcType=VARCHAR}, #{sex,jdbcType=VARBINARY}, #{chname,jdbcType=VARBINARY}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.mybatisdemo.blog.VO.Userinfo">
+    update userInfo
+    set userName = #{username,jdbcType=VARCHAR},
+      age = #{age,jdbcType=INTEGER},
+      passWord = #{password,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARBINARY},
+      CHName = #{chname,jdbcType=VARBINARY}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, userName, age, passWord, sex, CHName
+    from userInfo
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, userName, age, passWord, sex, CHName
+    from userInfo
+  </select>
+  <resultMap id="BaseResultMap" type="com.example.mybatisdemo.blog.VO.Userinfo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="userName" jdbcType="VARCHAR" property="username" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="passWord" jdbcType="VARCHAR" property="password" />
+    <result column="sex" jdbcType="VARBINARY" property="sex" />
+    <result column="CHName" jdbcType="VARBINARY" property="chname" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from userInfo
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.mybatisdemo.blog.VO.Userinfo">
+    insert into userInfo (id, userName, age, 
+      passWord, sex, CHName
+      )
+    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, 
+      #{password,jdbcType=VARCHAR}, #{sex,jdbcType=VARBINARY}, #{chname,jdbcType=VARBINARY}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.mybatisdemo.blog.VO.Userinfo">
+    update userInfo
+    set userName = #{username,jdbcType=VARCHAR},
+      age = #{age,jdbcType=INTEGER},
+      passWord = #{password,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARBINARY},
+      CHName = #{chname,jdbcType=VARBINARY}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, userName, age, passWord, sex, CHName
+    from userInfo
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, userName, age, passWord, sex, CHName
+    from userInfo
+  </select>
+</mapper>
